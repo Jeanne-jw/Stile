@@ -12,7 +12,7 @@ Stile is a pure python package, no compilation needed.  You can install it using
 #### Dependencies ####
 To run Stile, you must have:
 
- - Python 2.7
+ - Python
  - NumPy
 
 We also recommend:
