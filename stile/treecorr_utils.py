@@ -98,12 +98,22 @@ def ReadTreeCorrResultsFile(file_name):
     # Now, the first line of the TreeCorr output file is of the form:
     # "# col1 . col2 . col3 [...]"
     # so we can get the proper field names by reading the first line of the file and processing it.
-    with open(file_name) as f:
+    '''with open(file_name) as f:
         fields = f.readline().split()
     fields = fields[1:]
     fields = [field for field in fields if field != '.']
+    return stile_utils.FormatArray(output, fields=fields)'''
+    with open(file_name, 'r') as data:
+        fp=data.readlines()
+    z=[]
+    for row in fp:
+        i=row.split()
+        z.append(i)
+    #with open(file_name) as f:
+    #    fields = f.readline().split()
+    fields = z[1][1:]
+    fields = [field for field in fields if field != '.']
     return stile_utils.FormatArray(output, fields=fields)
-
 
 def PickTreeCorrKeys(input_dict):
     """
